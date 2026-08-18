@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login - Instituto Federal</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="pagina">
+
+        <!-- =========================
+             LADO ESQUERDO
+        ========================== -->
+
+        <aside class="lado-esquerdo">
+
+            <div class="logo">
+                <img src="img/logo.png" alt="Logo Instituto Federal">
+            </div>
+
+            <h2>
+                INSTITUTO<br>
+                FEDERAL
+            </h2>
+
+            <div class="linha"></div>
+
+            <p>Ceará</p>
+
+            <span>
+                Campus<br>
+                Cedro
+            </span>
+
+        </aside>
+
+
+        <!-- =========================
+             LADO DIREITO
+        ========================== -->
+
+        <main class="lado-direito">
+
+            <!-- Logo superior -->
+
+            <div class="logo-superior">
+                <img src="img/logo-campus.png" alt="Logo Campus Cedro">
+            </div>
+
+
+            <!-- =========================
+                 ÁREA DE LOGIN
+            ========================== -->
+
+            <section class="login">
+
+                <div class="titulo-login">
+
+                    <h1>Bom Dia!</h1>
+
+                    <p>
+                        Acesse sua conta para continuar
+                    </p>
+
+                </div>
+
+
+                <form>
+
+                    <!-- Usuário -->
+
+                    <div class="grupo-campo">
+
+                        <label for="usuario">
+                            Usuário
+                        </label>
+
+                        <input
+                            type="text"
+                            id="usuario"
+                            name="usuario"
+                            placeholder="Digite seu usuário"
+                        >
+
+                    </div>
+
+
+                    <!-- Senha -->
+
+                    <div class="grupo-campo">
+
+                        <label for="senha">
+                            Senha
+                        </label>
+
+                        <div class="campo-senha">
+
+                            <input
+                                type="password"
+                                id="senha"
+                                name="senha"
+                                placeholder="Digite sua senha"
+                            >
+
+                            <span class="icone-senha">
+                                ⌧
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Recuperação -->
+
+                    <div class="recuperacao">
+
+                        <a href="#">
+                            Esqueci minha senha
+                        </a>
+
+                    </div>
+
+
+                    <!-- Botões -->
+
+                    <div class="botoes">
+
+                        <button
+                            type="button"
+                            class="btn-criar"
+                        >
+                            Criar Conta
+                        </button>
+
+                        <button
+                            type="submit"
+                            class="btn-entrar"
+                        >
+                            Entrar
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="footer">
+
+        <div class="footer-conteudo">
+
+            <!-- INSTITUCIONAL -->
+
+            <div class="footer-secao footer-institucional">
+
+                <div class="footer-logo">
+
+                    <img
+                        src="img/logo.png"
+                        alt="Instituto Federal"
+                    >
+
+                </div>
+
+                <div>
+
+                    <h3>
+                        Instituto Federal do Ceará
+                    </h3>
+
+                    <p>
+                        Campus Cedro
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- DIVISOR -->
+
+            <div class="footer-divisor"></div>
+
+
+            <!-- NAVEGAÇÃO -->
+
+            <div class="footer-secao footer-navegacao">
+
+                <h3>
+                    Navegação
+                </h3>
+
+                <nav>
+
+                    <a href="#">
+                        Início
+                    </a>
+
+                    <a href="#">
+                        Sobre
+                    </a>
+
+                    <a href="#">
+                        Contato
+                    </a>
+
+                    <a href="#">
+                        Suporte
+                    </a>
+
+                </nav>
+
+            </div>
+
+
+            <!-- DIVISOR -->
+
+            <div class="footer-divisor"></div>
+
+
+            <!-- ATENDIMENTO -->
+
+            <div class="footer-secao footer-contato">
+
+                <h3>
+                    Atendimento
+                </h3>
+
+                <p>
+                    Campus Cedro
+                </p>
+
+                <p>
+                    Ceará - Brasil
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             PARTE INFERIOR
+        ========================== -->
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 Instituto Federal do Ceará -
+                Campus Cedro
+            </p>
+
+            <p>
+                Todos os direitos reservados.
+            </p>
+
+        </div>
+
+    </footer>
+
+</body>
+<script src="/web/server/scriptLogin.js"></script>
+</html>
