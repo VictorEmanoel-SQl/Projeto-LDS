@@ -1,0 +1,539 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =========================
+   BODY
+========================= */
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* =========================
+   BODY
+========================= */
+
+body {
+  background-color: #ffffff;
+
+  overflow-x: hidden;
+}
+
+/* =========================
+   CABEÇALHO
+========================= */
+
+.topo {
+  width: 100%;
+  height: 90px;
+
+  background-color: #ffffdc;
+
+  display: flex;
+  align-items: center;
+
+  padding-left: 75px;
+
+  position: relative;
+
+  z-index: 10;
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.logo-area {
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+}
+
+.logo {
+  width: 70px;
+  height: 70px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+}
+
+.logo-area span {
+  color: #111111;
+
+  font-size: 25px;
+
+  font-weight: 700;
+}
+
+/* =========================
+   ÁREA PRINCIPAL
+========================= */
+
+.cadastro {
+  position: relative;
+
+  width: 100%;
+
+  min-height: calc(100vh - 90px);
+
+  overflow: hidden;
+}
+
+/* =========================
+   FUNDO
+========================= */
+
+.fundo {
+  position: absolute;
+
+  inset: 0;
+
+  background-image:
+    linear-gradient(rgba(0, 100, 35, 0.72), rgba(0, 100, 35, 0.72)),
+    url("../assets/BackgroundImage.png");
+
+  background-size: cover;
+
+  background-position: center;
+
+  background-repeat: no-repeat;
+}
+
+/* =========================
+   CONTEÚDO
+========================= */
+
+.conteudo {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+
+  min-height: calc(100vh - 90px);
+
+  padding-top: 43px;
+
+  padding-left: 110px;
+
+  padding-right: 110px;
+}
+
+/* =========================
+   SETA
+========================= */
+
+.voltar {
+  display: block;
+
+  width: 45px;
+
+  height: 48px;
+
+  color: white;
+
+  text-decoration: none;
+
+  font-size: 72px;
+
+  font-weight: 200;
+
+  line-height: 35px;
+
+  margin-left: -5px;
+
+  margin-bottom: 20px;
+}
+
+.voltar:hover {
+  opacity: 0.8;
+}
+
+/* =========================
+   TÍTULO
+========================= */
+
+h1 {
+  color: #ffffff;
+
+  font-size: 46px;
+
+  font-weight: 700;
+
+  margin-bottom: 28px;
+}
+
+/* =========================
+   FORMULÁRIO
+========================= */
+
+.formulario {
+  width: 100%;
+
+  max-width: 1125px;
+
+  display: grid;
+
+  grid-template-columns: 515px 330px;
+
+  column-gap: 280px;
+
+  align-items: start;
+}
+
+/* =========================
+   CAMPOS
+========================= */
+
+.campo {
+  width: 100%;
+
+  margin-bottom: 17px;
+}
+
+.campo label {
+  display: block;
+
+  color: #ffffff;
+
+  font-size: 25px;
+
+  font-weight: 600;
+
+  margin-bottom: 10px;
+}
+
+/* =========================
+   INPUTS
+========================= */
+
+.campo input,
+.campo select {
+  width: 100%;
+
+  height: 53px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  outline: none;
+
+  background-color: #eeeeee;
+
+  color: #222222;
+
+  padding: 0 22px;
+
+  font-size: 16px;
+
+  font-weight: 600;
+}
+
+/* =========================
+   PLACEHOLDER
+========================= */
+
+.campo input::placeholder {
+  color: #555555;
+
+  opacity: 1;
+}
+
+/* =========================
+   FOCO
+========================= */
+
+.campo input:focus,
+.campo select:focus {
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.35);
+}
+
+/* =========================
+   SENHA
+========================= */
+
+.senha-container {
+  width: 100%;
+
+  position: relative;
+}
+
+.senha-container input {
+  padding-right: 60px;
+}
+
+/* =========================
+   BOTÃO SENHA
+========================= */
+
+.mostrar-senha {
+  position: absolute;
+
+  right: 13px;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  width: 38px;
+  height: 38px;
+
+  border: none;
+
+  background: transparent;
+
+  color: #222222;
+
+  cursor: pointer;
+
+  font-size: 24px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+/* =========================
+   SELECT
+========================= */
+
+.campo select {
+  cursor: pointer;
+
+  appearance: auto;
+}
+
+/* =========================
+   CAMPO GÊNERO
+========================= */
+
+.genero {
+  margin-top: 4px;
+}
+
+/* =========================
+   CAMPO ÁREA
+========================= */
+
+.area {
+  margin-top: 52px;
+}
+
+/* =========================
+   BOTÃO
+========================= */
+
+.botao-container {
+  width: 100%;
+
+  display: flex;
+
+  justify-content: center;
+
+  margin-top: 25px;
+
+  padding-right: 160px;
+}
+
+.btn-entrar {
+  width: 350px;
+
+  height: 67px;
+
+  border: none;
+
+  border-radius: 13px;
+
+  background-color: #eeeeee;
+
+  color: #111111;
+
+  font-size: 29px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.btn-entrar:hover {
+  background-color: #ffffff;
+
+  transform: scale(1.02);
+}
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 1200px) {
+  .topo {
+    padding-left: 45px;
+  }
+
+  .conteudo {
+    padding-left: 70px;
+
+    padding-right: 70px;
+  }
+
+  .formulario {
+    grid-template-columns: 45% 30%;
+
+    column-gap: 20%;
+  }
+
+  .botao-container {
+    padding-right: 10%;
+  }
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 850px) {
+  .topo {
+    height: 75px;
+
+    padding-left: 25px;
+  }
+
+  .logo {
+    width: 55px;
+    height: 55px;
+  }
+
+  .logo-area span {
+    font-size: 19px;
+  }
+
+  .cadastro {
+    min-height: calc(100vh - 75px);
+  }
+
+  .conteudo {
+    padding: 30px;
+
+    min-height: auto;
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+
+  .formulario {
+    grid-template-columns: 1fr;
+
+    column-gap: 0;
+
+    max-width: 600px;
+  }
+
+  .lado-direito {
+    margin-top: 15px;
+  }
+
+  .area {
+    margin-top: 10px;
+  }
+
+  .botao-container {
+    padding-right: 0;
+
+    margin-top: 30px;
+  }
+}
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 500px) {
+  .topo {
+    height: 65px;
+
+    padding-left: 15px;
+  }
+
+  .logo {
+    width: 45px;
+    height: 45px;
+  }
+
+  .logo-area {
+    gap: 10px;
+  }
+
+  .logo-area span {
+    font-size: 15px;
+  }
+
+  .cadastro {
+    min-height: calc(100vh - 65px);
+  }
+
+  .conteudo {
+    padding: 22px 25px 35px;
+  }
+
+  .voltar {
+    font-size: 58px;
+
+    margin-bottom: 10px;
+  }
+
+  h1 {
+    font-size: 30px;
+
+    margin-bottom: 22px;
+  }
+
+  .campo label {
+    font-size: 19px;
+  }
+
+  .campo input,
+  .campo select {
+    height: 47px;
+
+    font-size: 14px;
+
+    border-radius: 12px;
+  }
+
+  .btn-entrar {
+    width: 100%;
+
+    max-width: 300px;
+
+    height: 58px;
+
+    font-size: 24px;
+  }
+}

@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Portal IFCE Eventos</title>
+
+    <link rel="stylesheet" href="css/stylecadastro.css" />
+  </head>
+
+  <body>
+    <!-- =========================
+         CABEÇALHO
+    ========================== -->
+    <header class="topo">
+      <div class="logo-area">
+        <div class="logo">
+          <img src="assets/logoT.png" alt="Logo IFCE" />
+        </div>
+
+        <span>Portal IFCE Eventos</span>
+      </div>
+    </header>
+    <!-- =========================
+         ÁREA DE CADASTRO
+    ========================== -->
+    <main class="cadastro">
+      <div class="fundo"></div>
+      <div class="conteudo">
+        <!-- SETA -->
+        <a href="#" class="voltar">‹</a>
+        <!-- TÍTULO -->
+        <h1>Cadastre-se</h1>
+        <form>
+          <div class="formulario">
+            <!-- =====================
+                         COLUNA ESQUERDA
+                    ====================== -->
+            <div class="lado-esquerdo">
+              <!-- NOME -->
+              <div class="campo">
+                <label for="nome"> Nome Completo </label>
+                <input
+                  type="text"
+                  id="nome"
+                  name="nome"
+                  placeholder="Digite seu nome completo"
+                />
+              </div>
+
+              <!-- EMAIL -->
+              <div class="campo">
+                <label for="email"> E-mail </label>
+
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Digite seu E-mail"
+                />
+              </div>
+
+              <!-- SENHA -->
+              <div class="campo">
+                <label for="senha"> Senha </label>
+
+                <div class="senha-container">
+                  <input
+                    type="password"
+                    id="senha"
+                    name="senha"
+                    placeholder="Digite sua senha"
+                  />
+
+                  <button
+                    type="button"
+                    class="mostrar-senha"
+                    onclick="mostrarSenha('senha', this)"
+                    aria-label="Mostrar senha"
+                  >
+                    ◉
+                  </button>
+                </div>
+              </div>
+
+              <!-- CONFIRMAR SENHA -->
+              <div class="campo">
+                <label for="confirmar"> Confirmar senha </label>
+
+                <div class="senha-container">
+                  <input
+                    type="password"
+                    id="confirmar"
+                    name="confirmar"
+                    placeholder="Digite sua senha novamente"
+                  />
+
+                  <button
+                    type="button"
+                    class="mostrar-senha"
+                    onclick="mostrarSenha('confirmar', this)"
+                    aria-label="Mostrar senha"
+                  >
+                    ◉
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- =====================
+                         COLUNA DIREITA
+                    ====================== -->
+
+            <div class="lado-direito">
+              <!-- GÊNERO -->
+              <div class="campo genero">
+                <label for="genero"> Gênero </label>
+
+                <select id="genero" name="genero" onchange="Definirgenero()">
+                  <option value="">Selecione</option>
+
+                  <option value="feminino">Feminino</option>
+
+                  <option value="masculino">Masculino</option>
+
+                  <option value="outro">Outro</option>
+                </select>
+              </div>
+
+              <div id="div-outro" style="display: none">
+                <label for="sexo_outro">Especifique:</label><br />
+                <input type="text" id="sexo_outro" name="sexo_outro" />
+              </div>
+              <br />
+
+              <!-- ÁREA -->
+              <div class="campo area">
+                <label for="area"> Área </label>
+
+                <select id="area" name="area">
+                  <option value="">Selecione</option>
+
+                  <option value="professor">Professor</option>
+
+                  <option value="organizador">Organizador</option>
+
+                  <option value="interno">Participante Interno</option>
+
+                  <option value="externo">Participante Externo</option>
+
+                  <option value="servidor">Servidor</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- =========================
+                     BOTÃO
+                ========================== -->
+
+          <div class="botao-container">
+            <button type="submit" class="btn-entrar">Entrar</button>
+          </div>
+        </form>
+      </div>
+    </main>
+    
+  </body>
+  <script src="js/backendcadastro.js"></script>
+  <script src="js/scriptCadastro.js"></script>
+</html>
