@@ -7,7 +7,6 @@ function Definirgenero() {
                 divOutro.style.display = 'none';
             }
         }
-
 function mostrarSenha(id, botao) {
         const campo = document.getElementById(id);
 

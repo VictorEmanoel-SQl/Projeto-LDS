@@ -1,753 +1,784 @@
 /* =========================
+   VARIÁVEIS
+========================= */
+
+:root {
+    --cor-primaria: #176b1d;
+    --cor-primaria-escura: #125218;
+    --cor-primaria-clara: #23852a;
+    --cor-linha: #2d8b31;
+
+    --cor-fundo: #ffffdc;
+    --cor-campo: #d4d4d4;
+    --cor-campo-foco: #eeeeee;
+
+    --cor-texto: #111111;
+    --cor-texto-secundario: #5f6368;
+    --cor-placeholder: #595959;
+    --cor-branca: #ffffff;
+
+    --cor-footer-texto: #d5e5d6;
+    --cor-footer-bottom: #bdd2bf;
+
+    --raio-padrao: 12px;
+    --transicao-padrao: 200ms ease;
+}
+
+
+/* =========================
    RESET
 ========================= */
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+img,
+picture,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
 
 /* =========================
    CONFIGURAÇÕES GERAIS
 ========================= */
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
-
-  background-color: #ffffdc;
-
-  color: #111;
+    min-height: 100vh;
+    min-height: 100svh;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
 }
+
+:where(a, button, input, textarea, select):focus-visible {
+    outline: 3px solid #0b4d10;
+    outline-offset: 3px;
+}
+
 
 /* =========================
    PÁGINA PRINCIPAL
 ========================= */
 
 .pagina {
-  width: 100%;
-
-  min-height: 100vh;
-
-  display: flex;
+    min-height: 100vh;
+    min-height: 100svh;
+    display: grid;
+    grid-template-columns: minmax(270px, 27%) minmax(0, 1fr);
 }
+
 
 /* =========================
    LADO ESQUERDO
 ========================= */
 
 .lado-esquerdo {
-  width: 27%;
-
-  min-height: 100vh;
-
-  background-color: #17651c;
-
-  color: white;
-
-  display: flex;
-
-  flex-direction: column;
-
-  align-items: center;
-
-  padding-top: 245px;
-  -webkit-user-select: none;
-  user-select: none;
+    padding: 40px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--cor-primaria);
+    color: var(--cor-branca);
 }
 
 /* Logo */
 
 .logo {
-  width: 120px;
-
-  height: 150px;
-
-  display: flex;
-
-  justify-content: center;
-
-  align-items: center;
-
-  margin-bottom: 18px;
+    width: 120px;
+    height: 150px;
+    margin-bottom: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .logo img {
-  width: 100%;
-
-  height: 100%;
-
-  object-fit: contain;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 /* Título */
 
 .lado-esquerdo h2 {
-  font-size: 32px;
-
-  line-height: 1.05;
-
-  text-align: center;
-
-  font-weight: bold;
+    font-size: 2rem;
+    line-height: 1.05;
+    text-align: center;
+    font-weight: 700;
 }
 
 /* Linha */
 
 .linha {
-  width: 260px;
-
-  height: 3px;
-
-  background-color: #2d8b31;
-
-  margin: 18px 0 10px;
+    width: min(260px, 85%);
+    height: 3px;
+    margin: 18px 0 10px;
+    background-color: var(--cor-linha);
 }
 
 /* Ceará */
 
 .lado-esquerdo p {
-  font-size: 30px;
-
-  margin-bottom: 10px;
+    margin-bottom: 10px;
+    font-size: 1.875rem;
 }
 
 /* Campus */
 
 .lado-esquerdo span {
-  font-size: 30px;
-
-  line-height: 1.2;
-
-  text-align: center;
+    font-size: 1.875rem;
+    line-height: 1.2;
+    text-align: center;
 }
+
+.lado-esquerdo :where(a, button):focus-visible {
+    outline-color: #ffd54f;
+}
+
 
 /* =========================
    LADO DIREITO
 ========================= */
 
 .lado-direito {
-  width: 73%;
-
-  min-height: 100vh;
-
-  background-color: #ffffdc;
-
-  position: relative;
+    min-width: 0;
+    position: relative;
+    background-color: var(--cor-fundo);
 }
+
 
 /* =========================
    LOGO SUPERIOR
 ========================= */
 
 .logo-superior {
-  position: absolute;
-
-  top: 35px;
-
-  right: 70px;
-
-  width: 75px;
-
-  height: 75px;
+    position: absolute;
+    top: 35px;
+    right: 70px;
+    width: 75px;
+    height: 75px;
 }
 
 .logo-superior img {
-  width: 100%;
-
-  height: 100%;
-
-  object-fit: contain;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
+
 
 /* =========================
    LOGIN
 ========================= */
 
 .login {
-  width: 80%;
-
-  max-width: 800px;
-
-  margin-left: 8%;
-
-  padding-top: 115px;
+    width: min(calc(100% - 48px), 800px);
+    margin-inline: auto;
+    padding-block: 115px 60px;
 }
+
 
 /* =========================
    TÍTULO
 ========================= */
 
 .titulo-login {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
 }
 
 .titulo-login h1 {
-  font-size: 58px;
-
-  color: #000;
-
-  margin-bottom: 10px;
+    margin-bottom: 10px;
+    font-size: clamp(2.625rem, 5vw, 3.625rem);
+    line-height: 1.15;
+    color: #000000;
 }
 
 .titulo-login p {
-  font-size: 20px;
-
-  color: #666;
+    font-size: 1.25rem;
+    color: var(--cor-texto-secundario);
 }
+
 
 /* =========================
    GRUPOS DOS CAMPOS
 ========================= */
 
 .grupo-campo {
-  margin-bottom: 28px;
+    margin-bottom: 28px;
 }
 
 /* Labels */
 
 .login label {
-  display: block;
-
-  font-size: 24px;
-
-  font-weight: 600;
-
-  color: #111;
-
-  margin-bottom: 10px;
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--cor-texto);
 }
 
 /* Inputs */
 
 .login input {
-  width: 100%;
-
-  height: 67px;
-
-  border: 2px solid transparent;
-
-  border-radius: 12px;
-
-  background-color: #d4d4d4;
-
-  padding: 0 25px;
-
-  font-size: 18px;
-
-  outline: none;
-
-  transition: 0.2s;
+    width: 100%;
+    min-height: 67px;
+    padding: 0 25px;
+    border: 2px solid transparent;
+    border-radius: var(--raio-padrao);
+    background-color: var(--cor-campo);
+    color: var(--cor-texto);
+    font-size: 1.125rem;
+    transition:
+        background-color var(--transicao-padrao),
+        border-color var(--transicao-padrao),
+        box-shadow var(--transicao-padrao);
 }
 
 /* Placeholder */
 
 .login input::placeholder {
-  color: #888;
+    color: var(--cor-placeholder);
+    opacity: 1;
 }
 
 /* Foco */
 
 .login input:focus {
-  background-color: #eeeeee;
-
-  border-color: #176b1d;
+    border-color: var(--cor-primaria);
+    outline: none;
+    background-color: var(--cor-campo-foco);
 }
+
+.login input:focus-visible {
+    outline: 3px solid #0b4d10;
+    outline-offset: 2px;
+}
+
 
 /* =========================
    SENHA
 ========================= */
 
 .campo-senha {
-  position: relative;
+    position: relative;
 }
 
 .campo-senha input {
-  padding-right: 70px;
+    padding-right: 68px;
 }
 
 /* Ícone */
 
 .icone-senha {
-  position: absolute;
-
-  right: 25px;
-
-  top: 50%;
-
-  transform: translateY(-50%);
-
-  font-size: 28px;
-
-  color: #333;
-
-  cursor: pointer;
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    display: grid;
+    place-items: center;
+    transform: translateY(-50%);
+    background-color: transparent;
+    color: #333333;
+    font-size: 1.75rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: color var(--transicao-padrao);
 }
+
+.icone-senha:hover {
+    color: var(--cor-primaria);
+}
+
 
 /* =========================
    RECUPERAÇÃO
 ========================= */
 
 .recuperacao {
-  display: flex;
-
-  justify-content: flex-end;
-
-  margin-top: -10px;
+    margin-top: -10px;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .recuperacao a {
-  color: #555;
-
-  text-decoration: none;
-
-  font-size: 18px;
+    color: #555555;
+    text-decoration: none;
+    font-size: 1.125rem;
+    transition: color var(--transicao-padrao);
 }
 
 .recuperacao a:hover {
-  color: #176b1d;
-
-  text-decoration: underline;
+    color: var(--cor-primaria);
+    text-decoration: underline;
 }
+
 
 /* =========================
    BOTÕES
 ========================= */
 
 .botoes {
-  display: flex;
-
-  gap: 25px;
-
-  margin-top: 55px;
+    margin-top: 55px;
+    display: flex;
+    gap: 25px;
 }
 
 .botoes button {
-  flex: 1;
-
-  height: 65px;
-
-  border: none;
-
-  border-radius: 12px;
-
-  font-size: 22px;
-
-  font-weight: 600;
-
-  cursor: pointer;
-
-  transition: 0.2s;
+    flex: 1;
+    min-height: 65px;
+    padding: 10px 18px;
+    border: 2px solid transparent;
+    border-radius: var(--raio-padrao);
+    font-size: 1.375rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        background-color var(--transicao-padrao),
+        border-color var(--transicao-padrao),
+        color var(--transicao-padrao),
+        transform 100ms ease;
 }
 
 /* Criar conta */
 
-.btn-criar {
-  background-color: transparent;
-
-  color: #176b1d;
-
-  border: 2px solid #176b1d !important;
+.botoes .btn-criar {
+    border-color: var(--cor-primaria);
+    background-color: transparent;
+    color: var(--cor-primaria);
 }
 
-.btn-criar:hover {
-  background-color: #176b1d;
-
-  color: white;
+.botoes .btn-criar:hover {
+    background-color: #e5f3e6;
 }
 
 /* Entrar */
 
-.btn-entrar {
-  background-color: #176b1d;
-
-  color: white;
+.botoes .btn-entrar {
+    background-color: var(--cor-primaria);
+    color: var(--cor-branca);
 }
 
-.btn-entrar:hover {
-  background-color: #23852a;
+.botoes .btn-entrar:hover {
+    background-color: var(--cor-primaria-escura);
 }
 
 .botoes button:active {
-  transform: scale(0.98);
+    transform: scale(0.98);
 }
+
+.botoes button:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+    transform: none;
+}
+
 
 /* =========================
    FOOTER
 ========================= */
 
 .footer {
-  width: 100%;
-
-  background-color: #125218;
-
-  color: white;
+    width: 100%;
+    background-color: var(--cor-primaria-escura);
+    color: var(--cor-branca);
 }
+
+.footer :where(a, button):focus-visible {
+    outline-color: #ffd54f;
+}
+
 
 /* =========================
    ÁREA PRINCIPAL DO FOOTER
 ========================= */
 
 .footer-conteudo {
-  max-width: 1250px;
-
-  margin: auto;
-
-  padding: 45px 50px;
-
-  display: grid;
-
-  grid-template-columns: 1.6fr 1px 1fr 1px 1fr;
-
-  align-items: center;
-
-  gap: 45px;
+    max-width: 1250px;
+    margin-inline: auto;
+    padding: 45px 50px;
+    display: grid;
+    grid-template-columns: 1.6fr 1px 1fr 1px 1fr;
+    align-items: center;
+    gap: 45px;
 }
+
 
 /* =========================
    SEÇÕES
 ========================= */
 
 .footer-secao {
-  min-height: 110px;
-
-  display: flex;
-
-  flex-direction: column;
-
-  justify-content: center;
+    min-height: 110px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
+
 
 /* =========================
    INSTITUCIONAL
 ========================= */
 
 .footer-institucional {
-  flex-direction: row;
-
-  align-items: center;
-
-  gap: 20px;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
 }
 
 .footer-logo {
-  width: 72px;
-
-  height: 72px;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  flex-shrink: 0;
+    width: 72px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
 }
 
 .footer-logo img {
-  width: 100%;
-
-  height: 100%;
-
-  object-fit: contain;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
+
 
 /* =========================
    TEXTOS DO FOOTER
 ========================= */
 
 .footer-secao h3 {
-  font-size: 18px;
-
-  font-weight: 600;
-
-  margin-bottom: 10px;
-
-  color: #ffffff;
+    margin-bottom: 10px;
+    color: var(--cor-branca);
+    font-size: 1.125rem;
+    font-weight: 600;
 }
 
 .footer-secao p {
-  color: #d5e5d6;
-
-  font-size: 14px;
-
-  line-height: 1.7;
+    color: var(--cor-footer-texto);
+    font-size: 0.875rem;
+    line-height: 1.7;
 }
+
 
 /* =========================
    NAVEGAÇÃO
 ========================= */
 
 .footer-navegacao nav {
-  display: flex;
-
-  flex-direction: column;
-
-  gap: 9px;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
 }
 
 .footer-navegacao a {
-  width: fit-content;
-
-  color: #d5e5d6;
-
-  text-decoration: none;
-
-  font-size: 14px;
-
-  transition: 0.2s ease;
+    width: fit-content;
+    color: var(--cor-footer-texto);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition:
+        color var(--transicao-padrao),
+        transform var(--transicao-padrao);
 }
 
 .footer-navegacao a:hover {
-  color: #ffffff;
-
-  transform: translateX(4px);
+    color: var(--cor-branca);
+    transform: translateX(4px);
 }
+
 
 /* =========================
    DIVISORES
 ========================= */
 
 .footer-divisor {
-  width: 1px;
-
-  height: 95px;
-
-  background-color: rgba(255, 255, 255, 0.18);
+    width: 1px;
+    height: 95px;
+    background-color: rgba(255, 255, 255, 0.18);
 }
+
 
 /* =========================
    PARTE INFERIOR
 ========================= */
 
 .footer-bottom {
-  max-width: 1250px;
-
-  margin: auto;
-
-  padding: 18px 50px;
-
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-
-  display: flex;
-
-  justify-content: space-between;
-
-  align-items: center;
-
-  gap: 20px;
+    max-width: 1250px;
+    margin-inline: auto;
+    padding: 18px 50px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
 }
 
 .footer-bottom p {
-  margin: 0;
-
-  color: #bdd2bf;
-
-  font-size: 12px;
-
-  line-height: 1.5;
+    color: var(--cor-footer-bottom);
+    font-size: 0.75rem;
+    line-height: 1.5;
 }
+
 
 /* =========================
    RESPONSIVIDADE
 ========================= */
 
 @media (max-width: 900px) {
-  /* Página */
+    /* Página */
 
-  .pagina {
-    flex-direction: column;
-  }
+    .pagina {
+        min-height: auto;
+        display: flex;
+        flex-direction: column;
+    }
 
-  /* Lado esquerdo */
+    /* Lado esquerdo */
 
-  .lado-esquerdo {
-    width: 100%;
+    .lado-esquerdo {
+        width: 100%;
+        min-height: 300px;
+        padding: 30px 24px;
+    }
 
-    min-height: 300px;
+    .lado-esquerdo .logo {
+        width: 80px;
+        height: 90px;
+    }
 
-    padding-top: 30px;
+    .lado-esquerdo h2 {
+        font-size: 1.5625rem;
+    }
 
-    padding-bottom: 30px;
-  }
+    .lado-esquerdo p,
+    .lado-esquerdo span {
+        font-size: 1.25rem;
+    }
 
-  .lado-esquerdo .logo {
-    width: 80px;
+    .linha {
+        width: min(200px, 80%);
+    }
 
-    height: 90px;
-  }
+    /* Lado direito */
 
-  .lado-esquerdo h2 {
-    font-size: 25px;
-  }
+    .lado-direito {
+        width: 100%;
+        min-height: auto;
+        padding-bottom: 70px;
+    }
 
-  .lado-esquerdo p,
-  .lado-esquerdo span {
-    font-size: 20px;
-  }
+    /* Login */
 
-  .linha {
-    width: 200px;
-  }
+    .login {
+        width: min(calc(100% - 48px), 800px);
+        padding-block: 100px 0;
+    }
 
-  /* Lado direito */
+    .logo-superior {
+        top: 25px;
+        right: 25px;
+        width: 55px;
+        height: 55px;
+    }
 
-  .lado-direito {
-    width: 100%;
+    .titulo-login {
+        margin-bottom: 48px;
+    }
 
-    min-height: auto;
+    .titulo-login h1 {
+        font-size: 2.625rem;
+    }
 
-    padding-bottom: 70px;
-  }
+    .titulo-login p {
+        font-size: 1rem;
+    }
 
-  /* Login */
+    .login label {
+        font-size: 1.3125rem;
+    }
 
-  .login {
-    width: 85%;
+    .login input {
+        min-height: 58px;
+        font-size: 1rem;
+    }
 
-    margin: auto;
+    /* Botões */
 
-    padding-top: 60px;
-  }
+    .botoes {
+        margin-top: 45px;
+        gap: 15px;
+    }
 
-  .logo-superior {
-    right: 25px;
+    .botoes button {
+        min-height: 58px;
+        font-size: 1.125rem;
+    }
 
-    top: 25px;
+    /* Footer */
 
-    width: 55px;
+    .footer-conteudo {
+        padding: 40px 30px;
+        grid-template-columns: 1fr;
+        gap: 28px;
+        text-align: center;
+    }
 
-    height: 55px;
-  }
+    .footer-institucional {
+        justify-content: center;
+    }
 
-  .titulo-login h1 {
-    font-size: 42px;
-  }
+    .footer-secao {
+        min-height: auto;
+        align-items: center;
+    }
 
-  .titulo-login p {
-    font-size: 16px;
-  }
+    .footer-divisor {
+        width: 80%;
+        height: 1px;
+        margin-inline: auto;
+    }
 
-  .login label {
-    font-size: 21px;
-  }
+    .footer-navegacao nav {
+        align-items: center;
+    }
 
-  .login input {
-    height: 58px;
-
-    font-size: 16px;
-  }
-
-  /* Botões */
-
-  .botoes {
-    gap: 15px;
-
-    margin-top: 45px;
-  }
-
-  .botoes button {
-    height: 58px;
-
-    font-size: 18px;
-  }
-
-  /* Footer */
-
-  .footer-conteudo {
-    grid-template-columns: 1fr;
-
-    padding: 40px 30px;
-
-    gap: 28px;
-
-    text-align: center;
-  }
-
-  .footer-institucional {
-    justify-content: center;
-  }
-
-  .footer-secao {
-    min-height: auto;
-
-    align-items: center;
-  }
-
-  .footer-divisor {
-    width: 80%;
-
-    height: 1px;
-
-    margin: 0 auto;
-  }
-
-  .footer-navegacao nav {
-    align-items: center;
-  }
-
-  .footer-bottom {
-    flex-direction: column;
-
-    justify-content: center;
-
-    text-align: center;
-
-    padding: 18px 25px;
-
-    gap: 6px;
-  }
+    .footer-bottom {
+        padding: 18px 25px;
+        flex-direction: column;
+        justify-content: center;
+        gap: 6px;
+        text-align: center;
+    }
 }
+
 
 /* =========================
    TELAS MUITO PEQUENAS
 ========================= */
 
 @media (max-width: 500px) {
-  .login {
-    width: 90%;
-  }
+    .lado-direito {
+        padding-bottom: 50px;
+    }
 
-  .titulo-login h1 {
-    font-size: 36px;
-  }
+    .login {
+        width: min(calc(100% - 32px), 800px);
+        padding-top: 90px;
+    }
 
-  .botoes {
-    flex-direction: column;
-  }
+    .logo-superior {
+        top: 20px;
+        right: 16px;
+        width: 50px;
+        height: 50px;
+    }
 
-  .botoes button {
-    width: 100%;
-  }
+    .titulo-login {
+        margin-bottom: 40px;
+    }
 
-  .footer-conteudo {
-    padding: 35px 20px;
+    .titulo-login h1 {
+        font-size: 2.25rem;
+    }
 
-    gap: 25px;
-  }
+    .grupo-campo {
+        margin-bottom: 24px;
+    }
 
-  .footer-institucional {
-    flex-direction: column;
+    .login label {
+        font-size: 1.125rem;
+    }
 
-    gap: 12px;
-  }
+    .login input {
+        min-height: 54px;
+        padding-inline: 18px;
+    }
 
-  .footer-logo {
-    width: 65px;
+    .campo-senha input {
+        padding-right: 62px;
+    }
 
-    height: 65px;
-  }
+    .recuperacao a {
+        font-size: 1rem;
+    }
 
-  .footer-secao h3 {
-    font-size: 17px;
-  }
+    .botoes {
+        margin-top: 40px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
 
-  .footer-secao p,
-  .footer-navegacao a {
-    font-size: 13px;
-  }
+    .botoes button {
+        flex: none;
+        width: 100%;
+        min-height: 52px;
+    }
 
-  .footer-bottom {
-    padding: 16px 20px;
-  }
+    .footer-conteudo {
+        padding: 35px 20px;
+        gap: 25px;
+    }
+
+    .footer-institucional {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .footer-logo {
+        width: 65px;
+        height: 65px;
+    }
+
+    .footer-secao h3 {
+        font-size: 1.0625rem;
+    }
+
+    .footer-secao p,
+    .footer-navegacao a {
+        font-size: 0.8125rem;
+    }
+
+    .footer-bottom {
+        padding: 16px 20px;
+    }
+}
+
+
+/* =========================
+   ACESSIBILIDADE: MENOS MOVIMENTO
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .login input,
+    .icone-senha,
+    .recuperacao a,
+    .botoes button,
+    .footer-navegacao a {
+        transition: none;
+    }
+
+    .botoes button:active,
+    .footer-navegacao a:hover {
+        transform: none;
+    }
 }

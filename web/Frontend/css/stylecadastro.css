@@ -111,7 +111,7 @@ body {
 
   background-image:
     linear-gradient(rgba(0, 100, 35, 0.72), rgba(0, 100, 35, 0.72)),
-    url("../assets/BackgroundImage.png");
+    url("../assets/backgroundimage.png");
 
   background-size: cover;
 
