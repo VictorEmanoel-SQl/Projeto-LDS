@@ -4,23 +4,27 @@ const router = express.Router();
 
 const db = require('./node_connectionBD');
 
-//Cadastro
+// Cadastro
 router.post('/cadastrar', async (req, res) => {
-    const { usuario, senha, email, genero, area } = req.body;
+    const { nome, email, senha, matricula, data_nascimento } = req.body;
 
-    if (!usuario || !senha || !email || !genero || !area) {
+    if (!nome || !email || !senha || !matricula || !data_nascimento) {
         return res.status(400).json({ success: false, message: "Preencha todos os campos" });
     }
 
     try {
         const hash = await bcrypt.hash(senha, 10);
 
-        const sql = "INSERT INTO usuarios (nome, senha, email, genero, area) VALUES (?, ?, ?, ?, ?)";
+        const sql = "INSERT INTO usuarios (nome, email, senha, matricula, data_nascimento) VALUES (?, ?, ?, ?, ?)";
         
-        db.query(sql, [usuario, hash, email, genero, area], (err, result) => {
+        db.query(sql, [nome, email, hash, matricula, data_nascimento], (err, result) => {
             if (err) {
                 console.error(err);
-                return res.status(500).json({ success: false, message: "Erro no banco de dados ao cadastrar" });
+                
+                if(err.code === 'ER_DUP_ENTRY') {
+                    return res.status(409).json({ success: false, message: "Este email já está registado." });
+                }
+                return res.status(500).json({ success: false, message: "Erro na base de dados ao registar." });
             }
             return res.status(201).json({ success: true, message: "Cadastro realizado com sucesso!" });
         });

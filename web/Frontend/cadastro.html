@@ -1,172 +1,98 @@
-<!doctype html>
-<html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal IFCE Eventos</title>
-
-    <link rel="stylesheet" href="css/stylecadastro.css" />
-  </head>
-
-  <body>
+    <!-- Ajuste o caminho do CSS conforme a sua pasta -->
+    <link rel="stylesheet" href="css/stylecadastro.css">
+</head>
+<body>
     <!-- =========================
          CABEÇALHO
     ========================== -->
     <header class="topo">
-      <div class="logo-area">
-        <div class="logo">
-          <img src="assets/logot.png" alt="Logo IFCE" />
+        <div class="logo-area">
+            <div class="logo">
+                <img src="assets/logot.png" alt="Logo IFCE">
+            </div>
+            <span>Portal IFCE Eventos</span>
         </div>
-
-        <span>Portal IFCE Eventos</span>
-      </div>
     </header>
+
     <!-- =========================
          ÁREA DE CADASTRO
     ========================== -->
     <main class="cadastro">
-      <div class="fundo"></div>
-      <div class="conteudo">
-        <!-- SETA -->
-        <a href="#" class="voltar">‹</a>
-        <!-- TÍTULO -->
-        <h1>Cadastre-se</h1>
-        <form>
-          <div class="formulario">
-            <!-- =====================
-                         COLUNA ESQUERDA
-                    ====================== -->
-            <div class="lado-esquerdo">
-              <!-- NOME -->
-              <div class="campo">
-                <label for="nome"> Nome Completo </label>
-                <input
-                  type="text"
-                  id="nome"
-                  name="nome"
-                  placeholder="Digite seu nome completo"
-                />
-              </div>
+        <div class="fundo"></div>
+        <div class="conteudo">
+            <!-- SETA -->
+            <a href="#" class="voltar">‹</a>
 
-              <!-- EMAIL -->
-              <div class="campo">
-                <label for="email"> E-mail </label>
+            <!-- TÍTULO -->
+            <h1>Cadastre-se</h1>
 
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="Digite seu E-mail"
-                />
-              </div>
+            <!-- ADICIONADO ID AQUI -->
+            <form id="formCadastro">
+                <div class="formulario">
 
-              <!-- SENHA -->
-              <div class="campo">
-                <label for="senha"> Senha </label>
+                    <!-- COLUNA ESQUERDA -->
+                    <div class="lado-esquerdo">
+                        <div class="campo">
+                            <label for="nome">Nome Completo</label>
+                            <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+                        </div>
 
-                <div class="senha-container">
-                  <input
-                    type="password"
-                    id="senha"
-                    name="senha"
-                    placeholder="Digite sua senha"
-                  />
+                        <div class="campo">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" placeholder="Digite seu E-mail" required>
+                        </div>
 
-                  <button
-                    type="button"
-                    class="mostrar-senha"
-                    onclick="mostrarSenha('senha', this)"
-                    aria-label="Mostrar senha"
-                  >
-                    ◉
-                  </button>
+                        <div class="campo">
+                            <label for="matricula">Matrícula do Siape</label>
+                            <input type="text" id="matricula" name="matricula" placeholder="Digite sua matrícula do siape" inputmode="numeric" maxlength="8" pattern="[0-9]{8}" required>
+                        </div>
+                    </div>
+
+                    <!-- COLUNA DIREITA -->
+                    <div class="lado-direito">
+                        <div class="campo">
+                            <label for="ocultar_senha">Senha</label>
+                            <div class="senha-container">
+                                <input type="password" id="ocultar_senha" name="senha" placeholder="Digite sua senha" required>
+                                <button type="button" class="mostrar-senha" id="mostrar-senha" aria-label="Mostrar senha">◉</button>
+                            </div>
+                        </div>
+
+                        <div class="campo"> 
+                            <label for="confirmar">Confirmar senha</label>
+                            <div class="senha-container">
+                                <input type="password" id="confirmar" name="confirmar" placeholder="Digite sua senha novamente" required>
+                                <button type="button" class="mostrar-senha" id="mostrar-confirmar" aria-label="Mostrar senha">◉</button>
+                            </div>
+                        </div>
+
+                        <div class="campo_data">
+                            <label>Data de Nascimento</label>
+                            <div class="data-container">
+                                <input type="text" id="dia" name="dia" placeholder="DD" inputmode="numeric" maxlength="2" pattern="[0-9]{2}" required>
+                                <input type="text" id="mes" name="mes" placeholder="MM" inputmode="numeric" maxlength="2" pattern="[0-9]{2}" required>
+                                <input type="text" id="ano" name="ano" placeholder="YYYY" inputmode="numeric" maxlength="4" pattern="[0-9]{4}" required> 
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
 
-              <!-- CONFIRMAR SENHA -->
-              <div class="campo">
-                <label for="confirmar"> Confirmar senha </label>
-
-                <div class="senha-container">
-                  <input
-                    type="password"
-                    id="confirmar"
-                    name="confirmar"
-                    placeholder="Digite sua senha novamente"
-                  />
-
-                  <button
-                    type="button"
-                    class="mostrar-senha"
-                    onclick="mostrarSenha('confirmar', this)"
-                    aria-label="Mostrar senha"
-                  >
-                    ◉
-                  </button>
+                <!-- BOTÃO -->
+                <div class="botao-container">
+                    <button type="submit" class="btn-entrar">Entrar</button>
                 </div>
-              </div>
-            </div>
-
-            <!-- =====================
-                         COLUNA DIREITA
-                    ====================== -->
-
-            <div class="lado-direito">
-              <!-- GÊNERO -->
-              <div class="campo genero">
-                <label for="genero"> Gênero </label>
-
-                <select id="genero" name="genero" onchange="Definirgenero()">
-                  <option value="">Selecione</option>
-
-                  <option value="feminino">Feminino</option>
-
-                  <option value="masculino">Masculino</option>
-
-                  <option value="outro">Outro</option>
-                </select>
-              </div>
-
-              <div id="div-outro" style="display: none">
-                <label for="sexo_outro">Especifique:</label><br />
-                <input type="text" id="sexo_outro" name="sexo_outro" />
-              </div>
-              <br />
-
-              <!-- ÁREA -->
-              <div class="campo area">
-                <label for="area"> Área </label>
-
-                <select id="area" name="area">
-                  <option value="">Selecione</option>
-
-                  <option value="professor">Professor</option>
-
-                  <option value="organizador">Organizador</option>
-
-                  <option value="interno">Participante Interno</option>
-
-                  <option value="externo">Participante Externo</option>
-
-                  <option value="servidor">Servidor</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <!-- =========================
-                     BOTÃO
-                ========================== -->
-
-          <div class="botao-container">
-            <button type="submit" class="btn-entrar">Entrar</button>
-          </div>
-        </form>
-      </div>
+            </form>
+        </div>
     </main>
-    
-  </body>
-  <script src="js/backendcadastro.js"></script>
-  <script src="js/scriptcadastro.js"></script>
+
+    <!-- SCRIPTS SEPARADOS -->
+    <script src="js/backendcadastro.js"></script>
+    <script src="js/scriptcadastro.js"></script>
+</body>
 </html>
