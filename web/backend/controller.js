@@ -35,18 +35,18 @@ router.post('/cadastrar', async (req, res) => {
     }
 });
 
-//Login
+// Login
 router.post('/login', async (req, res) => {
-    const { usuario, senha } = req.body;
+    const { matricula, senha } = req.body;
 
-    if (!usuario || !senha) {
+    if (!matricula || !senha) {
         return res.status(400).json({ success: false, message: "Preencha todos os campos" });
     }
 
     try {
-        const sql = "SELECT * FROM usuarios WHERE nome = ?";
+        const sql = "SELECT * FROM usuarios WHERE matricula = ?";
         
-        db.query(sql, [usuario], async (err, results) => {
+        db.query(sql, [matricula], async (err, results) => {
             if (err) {
                 console.error(err);
                 return res.status(500).json({ success: false, message: "Erro no banco de dados" });
@@ -69,6 +69,38 @@ router.post('/login', async (req, res) => {
     } catch (error) {
         console.error(error);
         return res.status(500).json({ success: false, message: "Erro interno no servidor" });
+    }
+});
+
+// Redefinição de Senha por Matrícula
+router.post('/reset-senha', async (req, res) => {
+    const { matricula, novaSenha } = req.body;
+
+    if (!matricula || !novaSenha) {
+        return res.status(400).json({ success: false, message: "Preencha todos os campos." });
+    }
+
+    try {
+        const hash = await bcrypt.hash(novaSenha, 10);
+
+        const sql = "UPDATE usuarios SET senha = ? WHERE matricula = ?";
+
+        db.query(sql, [hash, matricula], (err, result) => {
+            if (err) {
+                console.error(err);
+                return res.status(500).json({ success: false, message: "Erro no banco de dados." });
+            }
+
+            if (result.affectedRows === 0) {
+                return res.status(404).json({ success: false, message: "Matrícula não encontrada no sistema." });
+            }
+
+            return res.json({ success: true, message: "Senha redefinida com sucesso!" });
+        });
+
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ success: false, message: "Erro interno no servidor." });
     }
 });
 

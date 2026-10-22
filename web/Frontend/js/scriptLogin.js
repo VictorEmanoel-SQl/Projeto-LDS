@@ -1,10 +1,14 @@
-const login = document.getElementById('usuario');
+const matricula = document.getElementById('matricula');
 const senha = document.getElementById('senha');
 const enviar = document.getElementById('enviar');
 
+  const botao = document.getElementById('recuperacao-link');
+  botao.onclick = function() {
+    window.location.href = 'redefinirsenha.html';
+  }
 
 async function fazerLogin() {
-    if (login.value === '' || senha.value === '') {
+    if (matricula.value === '' || senha.value === '') {
         alert("Preencha todos os campos");
         return;
     }
@@ -16,7 +20,7 @@ async function fazerLogin() {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                usuario: login.value,
+                matricula: matricula.value,
                 senha: senha.value
             })
         });

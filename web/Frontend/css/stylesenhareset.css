@@ -1,0 +1,358 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =========================
+   BODY
+========================= */
+
+body {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #ffffd8;
+    color: white;
+}
+
+/* =========================
+   CABEÇALHO
+========================= */
+
+.cabecalho {
+    width: 100%;
+    height: 150px;
+    background-color: #17651c;
+    display: flex;
+    align-items: center;
+    padding: 0 95px;
+}
+
+/* LOGO + NOME */
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+.logo-area img {
+    width: 75px;
+    height: 75px;
+    object-fit: contain;
+    background-color: white;
+    border-radius: 9px;
+}
+.logo-area span {
+    color: #eeeeee;
+    font-size: 25px;
+    font-weight: 400;
+}
+
+/* =========================
+   ÁREA PRINCIPAL
+========================= */
+
+.principal {
+    width: 100%;
+    min-height: calc(100vh - 150px);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 90px 20px;
+}
+
+/* =========================
+   BOTÃO VOLTAR
+========================= */
+
+.voltar {
+    position: absolute;
+    top: 27px;
+    left: 5%;
+    width: 310px;
+    height: 66px;
+    border: none;
+    border-radius: 13px;
+    background-color: #17651c;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.voltar:hover {
+    transform: translateY(-2px);
+    background-color: #125417;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.card-senha {
+    width: 520px;
+    min-height: 645px;
+    background-color: #17651c;
+    border-radius: 25px;
+    padding: 40px 50px 50px;
+    color: white;
+}
+
+/* =========================
+   TÍTULO
+========================= */
+
+.card-senha h1 {
+    text-align: center;
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+/* =========================
+   DESCRIÇÃO
+========================= */
+
+.descricao {
+    text-align: center;
+    color: #eeeeee;
+    font-size: 19px;
+    line-height: 1.3;
+    margin-bottom: 35px;
+}
+
+/* =========================
+   CAMPOS
+========================= */
+
+.campo label {
+    display: block;
+    font-size: 23px;
+    font-weight: bold;
+    margin-bottom: 14px;
+}
+
+/* ========================
+   INPUT + OLHO
+========================= */
+
+.input-senha {
+    width: 100%;
+    height: 51px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.input-matricula {
+    width: 100%;
+    height: 51px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.input-matricula input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 0 15px;
+    font-size: 19px;
+    color: #222;
+}
+
+.input-matricula button {
+    width: 50px;
+    height: 100%;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: #333;
+    font-size: 21px;
+}
+
+.input-senha input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 0 15px;
+    font-size: 19px;
+    color: #222;
+}
+.input-senha button {
+    width: 50px;
+    height: 100%;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: #333;
+    font-size: 21px;
+}
+
+/* =========================
+   REQUISITOS
+========================= */
+
+.requisitos {
+    margin-top: 18px;
+    margin-bottom: 36px;
+}
+.requisitos p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    color: #eeeeee;
+    margin-bottom: 10px;
+}
+
+/* CÍRCULO */
+.circulo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    border: 2px solid white;
+    border-radius: 50%;
+    font-size: 18px;
+}
+
+/* REQUISITO CUMPRIDO */
+
+.requisito-ok .circulo {
+    border-color: white;
+}
+.requisito-ok .circulo::after {
+    content: "✓";
+    font-size: 17px;
+}
+.requisito-ok .circulo {
+    font-size: 0;
+}
+
+/* =========================
+   CONFIRMAR
+========================= */
+
+.confirmar {
+    margin-bottom: 20px;
+}
+
+/* =========================
+   BOTÃO SALVAR
+========================= */
+
+.btn-salvar {
+    width: 100%;
+    height: 51px;
+    border: none;
+    border-radius: 10px;
+    background-color: white;
+    color: #17651c;
+    font-size: 23px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.btn-salvar:hover {
+    background-color: #eeeeee;
+    transform: translateY(-2px);
+}
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 900px) {
+    .cabecalho {
+        height: 120px;
+        padding: 0 40px;
+    }
+    .logo-area img {
+        width: 65px;
+        height: 65px;
+    }
+    .logo-area span {
+        font-size: 21px;
+    }
+    .principal {
+        padding-top: 120px;
+    }
+    .voltar {
+        left: 5%;
+        width: 270px;
+        height: 58px;
+        font-size: 19px;
+    }
+    .card-senha {
+        width: 500px;
+    }
+}
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 600px) {
+    .cabecalho {
+        height: 100px;
+        padding: 0 20px;
+    }
+    .logo-area {
+        gap: 12px;
+    }
+    .logo-area img {
+        width: 55px;
+        height: 55px;
+    }
+    .logo-area span {
+        font-size: 17px;
+    }
+    .principal {
+        min-height: calc(100vh - 100px);
+        padding: 100px 15px 35px;
+    }
+    .voltar {
+        top: 25px;
+        left: 15px;
+        width: 220px;
+        height: 50px;
+        font-size: 16px;
+    }
+    .card-senha {
+        width: 100%;
+        min-height: auto;
+        padding: 35px 22px 40px;
+        border-radius: 22px;
+    }
+    .card-senha h1 {
+        font-size: 30px;
+    }
+    .descricao {
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+    .campo label {
+        font-size: 19px;
+    }
+    .input-senha {
+        height: 50px;
+    }
+    .requisitos p {
+        font-size: 13px;
+    }
+    .btn-salvar {
+        height: 52px;
+        font-size: 20px;
+    }
+}

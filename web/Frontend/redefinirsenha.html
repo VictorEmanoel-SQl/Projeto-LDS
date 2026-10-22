@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redefinir Senha - Portal IFCE Eventos</title>
+    <link rel="stylesheet" href="css/stylesenhareset.css">
+</head>
+
+<body>
+    <!-- CABEÇALHO -->
+    <header class="cabecalho">
+        <div class="logo-area">
+            <img src="assets/Logo FundoBranco.png" alt="Logo IFCE">
+            <span>Portal IFCE Eventos</span>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO -->
+    <main class="principal">
+        <!-- BOTÃO VOLTAR -->
+        <button class="voltar" onclick="voltarInicio()">
+            Voltar para o início
+        </button>
+        <!-- CARD -->
+        <section class="card-senha">
+            <h1>Redefinir senha</h1>
+            <p class="descricao">
+                Crie uma nova senha para acessar<br>
+                sua conta.
+            </p>
+            
+            <!-- FORMULÁRIO COM A TRAVA DE RECARREGAMENTO -->
+            <form onsubmit="salvarSenha(event); return false;">
+
+                <div class="campo">
+                    <label for="matricula">Matrícula:</label>
+                    <div class="input-matricula">
+                        <input 
+                            type="text" 
+                            id="matricula" 
+                            placeholder="Digite sua matrícula (8 dígitos)" 
+                            maxlength="8"
+                            required
+                        >
+                    </div>
+                </div>
+                
+                <!-- NOVA SENHA -->
+                <div class="campo">
+                    <label for="novaSenha">
+                        Nova senha:
+                    </label>
+                    <div class="input-senha">
+                        <input
+                            type="password"
+                            id="novaSenha"
+                            placeholder=""
+                            required
+                            oninput="senha()"
+                        >
+                        <button type="button" onclick="mostrarSenha('novaSenha', 'olho1')">
+                            <span id="olho1">◉</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- REQUISITOS -->
+                <div class="requisitos">
+                    <p id="simboloEspecial">
+                        <span class="circulo">○</span>
+                        Pelo menos um caractere (@ $ % !)
+                    </p>
+                    <p id="letraMaiuscula">
+                        <span class="circulo">○</span>
+                        Pelo menos uma letra maiúscula (A - Z)
+                    </p>
+                    <p id="quantidade">
+                        <span class="circulo">○</span>
+                        No mínimo 8 caracteres
+                    </p>
+                </div>
+
+                <!-- CONFIRMAR SENHA -->
+                <div class="campo confirmar">
+                    <label for="confirmarSenha">
+                        Confirmar nova senha:
+                    </label>
+                    <div class="input-senha">
+                        <input
+                            type="password"
+                            id="confirmarSenha"
+                            required
+                        >
+                        <button type="button" onclick="mostrarSenha('confirmarSenha', 'olho2')">
+                            <span id="olho2">◉</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- SALVAR -->
+                <button type="submit" class="btn-salvar">
+                    Salvar
+                </button>
+                
+            </form>
+        </section>
+    </main>
+    <script src="js/senhareset.js"></script>
+</body>
+</html>
