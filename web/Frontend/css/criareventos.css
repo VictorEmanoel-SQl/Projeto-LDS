@@ -1,0 +1,369 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #ffffd8;
+    color: #111;
+}
+
+/* CABEÇALHO */
+.cabecalho {
+    min-height: 84px;
+    background-color: #205c1d;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 25px;
+    gap: 25px;
+    color: #ffffd8;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo img {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+    background: white;
+    border-radius: 6px;
+}
+
+.logo h2 {
+    font-size: 20px;
+}
+
+.acoes {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.pesquisa {
+    width: 280px;
+    height: 34px;
+    border-radius: 25px;
+    background: #ffffd8;
+    display: flex;
+    align-items: center;
+    padding: 0 12px 0 30px;
+    color: #111;
+}
+
+.pesquisa input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 13px;
+}
+
+.pesquisa i {
+    cursor: pointer;
+}
+
+.perfil {
+    width: 43px;
+    height: 43px;
+    border-radius: 50%;
+    border: none;
+    background: #ffffd8;
+    color: #333;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* CONTEÚDO PRINCIPAL */
+.principal {
+    max-width: 900px;
+    margin: 62px auto 90px;
+    padding: 0 15px;
+}
+
+.introducao {
+    margin-bottom: 28px;
+}
+
+.introducao h1 {
+    font-size: 40px;
+    margin-bottom: 2px;
+}
+
+.introducao p {
+    font-size: 30px;
+    color: #555;
+}
+
+/* FORMULÁRIO */
+.formulario {
+    background: #efeeee;
+    border: 1.5px solid #658263;
+    border-radius: 17px;
+    padding: 45px 39px 76px;
+}
+
+.titulo-imagem {
+    display: block;
+    font-size: 27px;
+    margin-bottom: 20px;
+}
+
+.topo-formulario {
+    display: grid;
+    grid-template-columns: 0.85fr 1fr;
+    gap: 52px;
+    align-items: center;
+}
+
+.area-imagem {
+    height: 250px;
+    border: 2px solid #718b70;
+    border-radius: 16px;
+    background: #d9d9d9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+}
+
+.area-imagem i {
+    font-size: 50px;
+    color: #205c1d;
+}
+
+.area-imagem input {
+    display: none;
+}
+
+.area-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+    position: absolute;
+    inset: 0;
+}
+
+.campos-principais {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.campo label {
+    font-size: 27px;
+    margin-bottom: 8px;
+}
+
+.campo input,
+.campo textarea {
+    width: 100%;
+    border: 2px solid #80957e;
+    border-radius: 8px;
+    background: #fffdfd;
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    outline-color: #205c1d;
+}
+
+.campo input {
+    height: 38px;
+}
+
+.linha {
+    display: grid;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.tres-colunas {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.duas-colunas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.descricao {
+    margin-top: 20px;
+}
+
+.campo textarea {
+    height: 115px;
+    resize: vertical;
+}
+
+.aviso {
+    margin-top: 25px;
+    font-size: 20px;
+    color: #666;
+}
+
+/* BOTÕES */
+.botoes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-top: 62px;
+}
+
+.botoes button {
+    min-height: 55px;
+    border: 2px solid #718b70;
+    border-radius: 14px;
+    background: #fffdfd;
+    color: #205c1d;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.botoes button:hover {
+    background: #205c1d;
+    color: white;
+}
+
+.botoes .cancelar {
+    font-size: 23px;
+}
+
+/* RODAPÉ */
+.rodape {
+    background: #205c1d;
+    color: #ffffd8;
+    padding: 27px 25px;
+    display: grid;
+    grid-template-columns: 1.5fr 0.8fr 0.6fr;
+    gap: 35px;
+}
+
+.rodape-logo {
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.rodape-logo img {
+    width: 52px;
+    height: 52px;
+}
+
+.rodape-logo h3 {
+    font-size: 16px;
+}
+
+.rodape p {
+    font-size: 13px;
+    margin-top: 8px;
+    line-height: 1.3;
+}
+
+.rodape h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.rodape p i {
+    width: 16px;
+    margin-right: 3px;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 700px) {
+    .cabecalho {
+        flex-wrap: wrap;
+        padding: 12px 15px;
+        gap: 15px;
+    }
+
+    .logo h2 {
+        font-size: 16px;
+    }
+
+    .acoes {
+        width: 100%;
+        gap: 12px;
+    }
+
+    .pesquisa {
+        width: 100%;
+        padding-left: 15px;
+    }
+
+    .principal {
+        margin: 35px auto 45px;
+        padding: 0 15px;
+    }
+
+    .introducao h1 {
+        font-size: 30px;
+    }
+
+    .introducao p {
+        font-size: 20px;
+    }
+
+    .formulario {
+        padding: 25px 18px 35px;
+    }
+
+    .titulo-imagem {
+        font-size: 22px;
+    }
+
+    .topo-formulario {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .area-imagem {
+        height: 220px;
+    }
+
+    .campo label {
+        font-size: 20px;
+    }
+
+    .tres-colunas,
+    .duas-colunas {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .aviso {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+    .botoes {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin-top: 30px;
+    }
+
+    .botoes button {
+        font-size: 21px;
+    }
+
+    .rodape {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 25px 20px;
+    }
+}

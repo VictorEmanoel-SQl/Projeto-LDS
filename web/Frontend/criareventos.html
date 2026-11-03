@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Atividade - Portal IFCE Eventos</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Cabeçalho -->
+    <header class="cabecalho">
+        <div class="logo">
+            <img src="" alt="Logo IFCE">
+            <h2>Portal IFCE Eventos</h2>
+        </div>
+
+        <div class="acoes">
+            <div class="pesquisa">
+                <input type="text" placeholder="Pesquisar Eventos">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+
+            <button class="perfil" aria-label="Perfil">
+                <i class="fa-regular fa-user"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <main class="principal">
+
+        <section class="introducao">
+            <h1>Criar uma nova atividade</h1>
+            <p>Cadastre minicursos, palestras e outras ações do evento.</p>
+        </section>
+
+        <form class="formulario">
+
+            <label class="titulo-imagem">Imagem do evento:</label>
+
+            <div class="topo-formulario">
+
+                <label class="area-imagem" for="imagem">
+                    <i class="fa-regular fa-camera"></i>
+                    <img id="preview" alt="Prévia da imagem">
+                    <input type="file" id="imagem" accept="image/*">
+                </label>
+
+                <div class="campos-principais">
+
+                    <div class="campo">
+                        <label for="titulo">Título do evento:</label>
+                        <input type="text" id="titulo"
+                               placeholder="Ex: São João" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="categoria">Categoria:</label>
+                        <input type="text" id="categoria"
+                               placeholder="Ex: São João" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="organizador">Organizador:</label>
+                        <input type="text" id="organizador"
+                               placeholder="Ex: Festejo" required>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="linha tres-colunas">
+                <div class="campo">
+                    <label for="data">Data:</label>
+                    <input type="text" id="data"
+                           placeholder="Ex: 15/08/2026" required>
+                </div>
+
+                <div class="campo">
+                    <label for="inicio">Inicia:</label>
+                    <input type="text" id="inicio"
+                           placeholder="Ex: 15:00" required>
+                </div>
+
+                <div class="campo">
+                    <label for="finaliza">Finaliza:</label>
+                    <input type="text" id="finaliza"
+                           placeholder="Ex: 16:20" required>
+                </div>
+            </div>
+
+            <div class="linha duas-colunas">
+                <div class="campo">
+                    <label for="local">Local:</label>
+                    <input type="text" id="local"
+                           placeholder="Ex: Cantina, em frente a CCA" required>
+                </div>
+
+                <div class="campo">
+                    <label for="vagas">Número de vagas:</label>
+                    <input type="number" id="vagas"
+                           placeholder="Ex: Limitado" min="1" required>
+                </div>
+            </div>
+
+            <div class="campo descricao">
+                <label for="descricao">Descrição:</label>
+                <textarea id="descricao"
+                          placeholder="Ex: Levem suas roupas caracterizadas, vai ter danças e comidas típicas."
+                          required></textarea>
+            </div>
+
+            <p class="aviso">
+                Você pode cadastrar várias atividades no mesmo horário.
+            </p>
+
+            <div class="botoes">
+                <button type="submit">Cadastrar</button>
+                <button type="reset" class="cancelar">Cancelar</button>
+            </div>
+
+        </form>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="rodape">
+
+        <div class="sobre">
+            <div class="logo rodape-logo">
+                <img src="" alt="Logo IFCE">
+                <h3>Portal IFCE Eventos</h3>
+            </div>
+
+            <p>
+                Plataforma de visualização<br>
+                de Eventos no IFCE - Campus<br>
+                Cedro.
+            </p>
+        </div>
+
+        <div class="contato">
+            <h3>Contato</h3>
+            <p><i class="fa-regular fa-envelope"></i> lfce31@gmail.com</p>
+            <p><i class="fa-solid fa-phone"></i> (88) 9 4002-8922</p>
+            <p><i class="fa-solid fa-location-arrow"></i> Rua João Pessoa, 123, Cedro-CE</p>
+        </div>
+
+        <div class="desenvolvedores">
+            <h3>Desenvolvedores</h3>
+            <p><i class="fa-regular fa-user"></i> Alisson</p>
+            <p><i class="fa-regular fa-user"></i> Ana Clara</p>
+            <p><i class="fa-regular fa-user"></i> João Vitor</p>
+            <p><i class="fa-regular fa-user"></i> Victor Emanuel</p>
+        </div>
+
+    </footer>
+
+    <script>
+        const imagem = document.getElementById("imagem");
+        const preview = document.getElementById("preview");
+        const icone = document.querySelector(".area-imagem i");
+
+        imagem.addEventListener("change", function () {
+            const arquivo = this.files[0];
+
+            if (arquivo) {
+                preview.src = URL.createObjectURL(arquivo);
+                preview.style.display = "block";
+                icone.style.display = "none";
+            }
+        });
+    </script>
+
+</body>
+</html>

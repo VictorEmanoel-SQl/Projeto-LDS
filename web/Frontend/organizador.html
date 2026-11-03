@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal IFCE Eventos</title>
+    <link rel="stylesheet" href="css/organizador.css">
+</head>
+<body>
+
+    <!-- Cabeçalho -->
+    <header class="cabecalho">
+        <div class="logo-titulo">
+            <img src="assets/logo.png" alt="Logo IFCE">
+            <h2>Portal IFCE Eventos</h2>
+        </div>
+
+        <div class="acoes">
+            <div class="pesquisa">
+                <input type="text" placeholder="Pesquisar Eventos">
+                <button aria-label="Pesquisar">⌕</button>
+            </div>
+
+            <button class="perfil" onclick="abrirPerfil()" aria-label="Perfil">
+                <span>♙</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <div class="layout">
+
+        <!-- Menu lateral -->
+        <aside class="menu">
+            <nav>
+                <a href="#" class="ativo">
+                    <span>▣</span> Eventos
+                </a>
+
+                <a href="#">
+                    <span>▦</span> Meus eventos
+                </a>
+
+                <a href="#">
+                    <span>☑</span> Minhas inscrições
+                </a>
+
+                <a href="#">
+                    <span>♙</span> Meus certificados
+                </a>
+            </nav>
+
+            <div class="linha-menu"></div>
+        </aside>
+
+        <!-- Área dos eventos -->
+        <main class="conteudo">
+            <h1>Eventos mais recentes</h1>
+
+            <div class="estado-vazio">
+                <p>NÃO HÁ NENHUM EVENTO</p>
+            </div>
+
+            <button class="voltar-topo"
+                    onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+                    aria-label="Voltar ao topo">
+                ↑
+            </button>
+        </main>
+
+    </div>
+
+    <!-- Rodapé -->
+    <footer class="rodape">
+
+        <div class="sobre">
+            <div class="marca-rodape">
+                <img src="assets/logo.png" alt="Logo IFCE">
+                <h3>Portal IFCE Eventos</h3>
+            </div>
+
+            <p>
+                Plataforma de visualização<br>
+                de Eventos no IFCE - Campus<br>
+                Cedro.
+            </p>
+        </div>
+
+        <div class="contato">
+            <h3>Contato</h3>
+            <p>◎ lfce31@gmail.com</p>
+            <p>♧ (88) 9 4002-8922</p>
+            <p>➤ Rua João Pessoa, 123, Cedro-CE</p>
+        </div>
+
+        <div class="desenvolvedores">
+            <h3>Desenvolvedores</h3>
+            <p>♙ Alisson</p>
+            <p>♙ Ana Clara</p>
+            <p>♙ João Vitor</p>
+            <p>♙ Victor Emanuel</p>
+        </div>
+
+    </footer>
+
+    <!-- MODAL DO PERFIL -->
+    <div
+        id="modalPerfil"
+        class="modal-fundo"
+        onclick="fecharPerfilFora(event)"
+    >
+        <div
+            class="modal-conteudo"
+            onclick="event.stopPropagation()"
+        >
+            <!-- BOTÃO FECHAR -->
+            <button
+                class="fechar-modal"
+                type="button"
+                onclick="fecharPerfil()"
+            >
+                &times;
+            </button>
+            <!-- ALTERAR SENHA -->
+            <button
+                class="opcao-perfil"
+                type="button"
+            >
+                <span class="icone">🔒</span>
+                <span onclick="senhareset()">Alterar senha</span>
+            </button>
+
+            <!-- ALTERAR FOTO -->
+            <button
+                class="opcao-perfil"
+                type="button"
+            >
+                <span class="icone">🖼️</span>
+                <span>Alterar foto de perfil</span>
+            </button>
+
+            <!-- INSCRIÇÕES -->
+            <button
+                class="opcao-perfil"
+                type="button"
+            >
+                <span class="icone">☑</span>
+                <span>Minhas inscrições</span>
+            </button>
+
+            <!-- CERTIFICADOS -->
+            <button
+                class="opcao-perfil"
+                type="button"
+            >
+                <span class="icone">🏅</span>
+                <span>Meus certificados</span>
+            </button>
+
+
+            <!-- SAIR -->
+            <button
+                class="opcao-perfil sair"
+                type="button"
+                onclick="sair()"
+            >
+                <span class="icone">↪</span>
+                <span>Sair</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Conexão com o JavaScript -->
+    <script src="js/organizador.js"></script>
+</body>
+</html>

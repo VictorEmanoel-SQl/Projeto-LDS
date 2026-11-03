@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal IFCE Eventos</title>
-    <link rel="stylesheet" href="css/organizadorstyle.css">
+    <link rel="stylesheet" href="css/eventos.css">
 </head>
 <body>
 
     <!-- Cabeçalho -->
     <header class="cabecalho">
         <div class="logo-titulo">
-            <img src="assets/logo.png" alt="Logo IFCE">
+            <img src="assets/logoif.png" alt="Logo IFCE">
             <h2>Portal IFCE Eventos</h2>
         </div>
 
@@ -56,7 +56,7 @@
         <!-- Área dos eventos -->
         <main class="conteudo">
             <h1>Eventos mais recentes</h1>
-
+            <input type="button" value="Criar evento" onclick="criarevento()">
             <div class="estado-vazio">
                 <p>NÃO HÁ NENHUM EVENTO</p>
             </div>
@@ -75,7 +75,7 @@
 
         <div class="sobre">
             <div class="marca-rodape">
-                <img src="assets/logo.png" alt="Logo IFCE">
+                <img src="assets/logoif.png" alt="Logo IFCE">
                 <h3>Portal IFCE Eventos</h3>
             </div>
 
@@ -127,7 +127,7 @@
                 type="button"
             >
                 <span class="icone">🔒</span>
-                <span onclick="senhareset()">Alterar senha</span>
+                <span>Alterar senha</span>
             </button>
 
             <!-- ALTERAR FOTO -->
@@ -171,6 +171,6 @@
     </div>
 
     <!-- Conexão com o JavaScript -->
-    <script src="js/organizador.js"></script>
+    <script src="js/eventoscript.js"></script>
 </body>
 </html>

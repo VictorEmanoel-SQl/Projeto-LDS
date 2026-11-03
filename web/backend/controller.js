@@ -22,7 +22,12 @@ router.post('/cadastrar', async (req, res) => {
                 console.error(err);
                 
                 if(err.code === 'ER_DUP_ENTRY') {
-                    return res.status(409).json({ success: false, message: "Este email já está registado." });
+                    if (err.sqlMessage && err.sqlMessage.includes('matricula')) {
+                        return res.status(409).json({ success: false, message: "Esta matrícula já está registada." });
+                    }
+                    if (err.sqlMessage && err.sqlMessage.includes('email')) {
+                        return res.status(409).json({ success: false, message: "Este email já está registado." });
+                    }
                 }
                 return res.status(500).json({ success: false, message: "Erro na base de dados ao registar." });
             }
