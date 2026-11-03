@@ -3,6 +3,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. Sistema de Pesquisa
     const inputPesquisa = document.querySelector('.pesquisa input');
     const btnPesquisa = document.querySelector('.pesquisa button');
+    const criarevento = document.getElementById('criareventos');
+
+    criarevento.addEventListener('click', () => {
+        window.location.href = 'criareventos.html';
+    });
 
     function executarPesquisa() {
         const termo = inputPesquisa.value.trim();
@@ -115,6 +120,6 @@ document.addEventListener("keydown", function(event) {
 function sair() {
     const confirmar = confirm("Deseja realmente sair?");
     if (confirmar) {
-        window.location.href = "index.html";
+        window.location.href = "login.html";
     }
 }

@@ -7,6 +7,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(express.static(path.join(__dirname, '../Frontend')));
+app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
 const controller = require('./controller');
 app.use('/', controller);

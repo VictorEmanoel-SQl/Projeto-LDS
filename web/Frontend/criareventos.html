@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Criar Atividade - Portal IFCE Eventos</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/criareventos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
@@ -37,7 +36,7 @@
             <p>Cadastre minicursos, palestras e outras ações do evento.</p>
         </section>
 
-        <form class="formulario">
+        <form class="formulario" enctype="multipart/form-data">
 
             <label class="titulo-imagem">Imagem do evento:</label>
 
@@ -46,7 +45,7 @@
                 <label class="area-imagem" for="imagem">
                     <i class="fa-regular fa-camera"></i>
                     <img id="preview" alt="Prévia da imagem">
-                    <input type="file" id="imagem" accept="image/*">
+                    <input type="file" id="imagem" accept="image/png,image/jpeg,image/webp,image/gif" required>
                 </label>
 
                 <div class="campos-principais">
