@@ -1,5 +1,82 @@
+// Busca os eventos no backend (GET /eventos) e renderiza os cards na tela
+async function carregarEventos() {
+    const lista = document.getElementById('lista-eventos');
+    const estadoVazio = document.querySelector('.estado-vazio');
+    if (!lista) return;
+
+    try {
+        const resposta = await fetch('/eventos');
+        const resultado = await resposta.json();
+
+        if (!resposta.ok || !resultado.success) {
+            throw new Error(resultado.message || 'Falha ao buscar eventos.');
+        }
+
+        const eventos = resultado.eventos || [];
+        lista.innerHTML = '';
+
+        if (eventos.length === 0) {
+            if (estadoVazio) estadoVazio.style.display = 'block';
+            return;
+        }
+
+        if (estadoVazio) estadoVazio.style.display = 'none';
+
+        eventos.forEach((ev) => {
+            const card = document.createElement('article');
+            card.className = 'evento-card';
+
+            const img = document.createElement('img');
+            img.src = ev.imagem_evento;
+            img.alt = ev.titulo || 'Imagem do evento';
+            card.appendChild(img);
+
+            const info = document.createElement('div');
+            info.className = 'evento-info';
+
+            const titulo = document.createElement('h2');
+            titulo.textContent = ev.titulo;
+            info.appendChild(titulo);
+
+            const dataFormatada = ev.data_evento
+                ? new Date(ev.data_evento).toLocaleDateString('pt-BR', { timeZone: 'UTC' })
+                : '';
+
+            const campos = [
+                ['Categoria', ev.categoria],
+                ['Organizador', ev.organizador],
+                ['Data', `${dataFormatada} — ${ev.hora_inicio} às ${ev.hora_fim}`],
+                ['Local', ev.local_eventos],
+                ['Vagas', ev.numero_vagas],
+                ['Descrição', ev.descricao]
+            ];
+
+            campos.forEach(([rotulo, valor]) => {
+                const p = document.createElement('p');
+                const strong = document.createElement('strong');
+                strong.textContent = `${rotulo}: `;
+                p.appendChild(strong);
+                p.appendChild(document.createTextNode(valor ?? ''));
+                info.appendChild(p);
+            });
+
+            card.appendChild(info);
+            lista.appendChild(card);
+        });
+    } catch (erro) {
+        console.error('Erro ao carregar eventos:', erro);
+        if (estadoVazio) {
+            estadoVazio.style.display = 'block';
+            const p = estadoVazio.querySelector('p');
+            if (p) p.textContent = 'ERRO AO CARREGAR OS EVENTOS';
+        }
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-    
+
+    carregarEventos(); // carrega os eventos assim que a página abre
+
     // 1. Sistema de Pesquisa
     const inputPesquisa = document.querySelector('.pesquisa input');
     const btnPesquisa = document.querySelector('.pesquisa button');

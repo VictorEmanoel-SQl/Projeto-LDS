@@ -125,6 +125,34 @@ body {
     font-size: 22px;
 }
 
+.espacamento {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* título à esquerda, botão à direita */
+    gap: 20px;
+    margin-bottom: 20px;          
+}
+
+.criarevento {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;                       /* espaço entre o + e o texto */
+    height: 40px;
+    padding: 0 18px;
+    background-color: #17651c;
+    color: #ffffd8;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 30%;
+}
+
+.btn-icone { 
+    background-image: url("assets/icons/plus.svg");
+    background-repeat: no-repeat; 
+    }
 
 .menu a:hover {
     background-color: #edf3c8;

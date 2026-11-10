@@ -36,7 +36,7 @@
             <p>Cadastre minicursos, palestras e outras ações do evento.</p>
         </section>
 
-        <form class="formulario" enctype="multipart/form-data">
+        <form class="formulario" id="formEvento" enctype="multipart/form-data">
 
             <label class="titulo-imagem">Imagem do evento:</label>
 
@@ -45,7 +45,7 @@
                 <label class="area-imagem" for="imagem">
                     <i class="fa-regular fa-camera"></i>
                     <img id="preview" alt="Prévia da imagem">
-                    <input type="file" id="imagem" accept="image/png,image/jpeg,image/webp,image/gif" required>
+                    <input type="file" id="imagem" name="imagem" accept="image/png,image/jpeg,image/webp,image/gif" required>
                 </label>
 
                 <div class="campos-principais">
@@ -74,19 +74,19 @@
             <div class="linha tres-colunas">
                 <div class="campo">
                     <label for="data">Data:</label>
-                    <input type="text" id="data"
+                    <input type="date" id="data"
                            placeholder="Ex: 15/08/2026" required>
                 </div>
 
                 <div class="campo">
                     <label for="inicio">Inicia:</label>
-                    <input type="text" id="inicio"
+                    <input type="time" id="inicio"
                            placeholder="Ex: 15:00" required>
                 </div>
 
                 <div class="campo">
                     <label for="finaliza">Finaliza:</label>
-                    <input type="text" id="finaliza"
+                    <input type="time" id="finaliza"
                            placeholder="Ex: 16:20" required>
                 </div>
             </div>
@@ -172,6 +172,8 @@
             }
         });
     </script>
+
+<script src="js/criareventos.js"></script>
 
 </body>
 </html>

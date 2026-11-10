@@ -55,8 +55,16 @@
 
         <!-- Área dos eventos -->
         <main class="conteudo">
-            <h1>Eventos mais recentes</h1>
-
+            <div class="espacamento">
+                <h1>Eventos mais recentes</h1>
+                <!-- Tela do ORGANIZADOR: aqui fica o botão de criar evento -->
+                <button type="button" id="criareventos" class="criarevento" value="Criar evento">
+                    <img src="assets/icons/plus.svg" alt="" width="20" height="15" class="btn-icone">
+                    Criar evento
+                </button>
+            </div>
+            <!-- #lista-eventos precisa ser IRMÃO do .estado-vazio, NÃO filho dele -->
+            <div id="lista-eventos" class="lista-eventos"></div>
             <div class="estado-vazio">
                 <p>NÃO HÁ NENHUM EVENTO</p>
             </div>
@@ -88,7 +96,7 @@
 
         <div class="contato">
             <h3>Contato</h3>
-            <p>◎ lfce31@gmail.com</p>
+            <p>◎ <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a9c5cfcacc9a98e9cec4c8c0c587cac6c4">[email&#160;protected]</a></p>
             <p>♧ (88) 9 4002-8922</p>
             <p>➤ Rua João Pessoa, 123, Cedro-CE</p>
         </div>

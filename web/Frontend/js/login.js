@@ -1,6 +1,18 @@
 const matricula = document.getElementById('matricula');
 const senha = document.getElementById('senha');
 const enviar = document.getElementById('enviar');
+const mostrarSenha = document.getElementById('icone-senha');
+const iconimg = document.querySelector('.icone-senha img');
+
+mostrarSenha.addEventListener('click', function() {
+    if (senha.type === 'password') {
+        senha.type = 'text';
+        iconimg.src = 'assets/icons/olhoaberto.svg';
+    } else {
+        senha.type = 'password';
+        iconimg.src = 'assets/icons/olhofechado.svg';
+    }
+});
 
   const botao = document.getElementById('recuperacao-link');
   botao.onclick = function() {
@@ -12,6 +24,8 @@ async function fazerLogin() {
         alert("Preencha todos os campos");
         return;
     }
+
+    
 
     try {
         const response = await fetch('/login', {
@@ -48,3 +62,4 @@ criarConta.addEventListener('click', function(event) {
     event.preventDefault();
     window.location.href = '/cadastro.html';
 });
+

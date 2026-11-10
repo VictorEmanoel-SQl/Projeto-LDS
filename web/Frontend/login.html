@@ -1,280 +1,190 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Login - Instituto Federal</title>
 
-    <link rel="stylesheet" href="css/stylelogin.css">
-</head>
+    <link rel="stylesheet" href="css/login.css" />
+  </head>
 
-<body>
-
+  <body>
     <div class="pagina">
-
-        <!-- =========================
+      <!-- =========================
              LADO ESQUERDO
         ========================== -->
 
-        <aside class="lado-esquerdo">
+      <aside class="lado-esquerdo">
+        <div class="logo">
+          <img src="assets/Logoif.png" alt="Logo Instituto Federal" />
+        </div>
 
-            <div class="logo">
-                <img src="assets/Logoif.png" alt="Logo Instituto Federal">
-            </div>
+        <h2>
+          INSTITUTO<br />
+          FEDERAL
+        </h2>
 
-            <h2>
-                INSTITUTO<br>
-                FEDERAL
-            </h2>
+        <div class="linha"></div>
 
-            <div class="linha"></div>
+        <p>Ceará</p>
 
-            <p>Ceará</p>
+        <span>
+          Campus<br />
+          Cedro
+        </span>
+      </aside>
 
-            <span>
-                Campus<br>
-                Cedro
-            </span>
-
-        </aside>
-
-
-        <!-- =========================
+      <!-- =========================
              LADO DIREITO
         ========================== -->
 
-        <main class="lado-direito">
+      <main class="lado-direito">
+        <!-- Logo superior -->
 
-            <!-- Logo superior -->
+        <div class="logo-superior">
+          <img src="assets/logot.png" alt="Logo Campus Cedro" />
+        </div>
 
-            <div class="logo-superior">
-                <img src="assets/logot.png" alt="Logo Campus Cedro">
-            </div>
-
-
-            <!-- =========================
+        <!-- =========================
                  ÁREA DE LOGIN
             ========================== -->
 
-            <section class="login">
+        <section class="login">
+          <div class="titulo-login">
+            <h1>Bom Dia!</h1>
 
-                <div class="titulo-login">
+            <p>Acesse sua conta para continuar</p>
+          </div>
 
-                    <h1>Bom Dia!</h1>
+          <form>
+            <!-- Usuário -->
 
-                    <p>
-                        Acesse sua conta para continuar
-                    </p>
+            <div class="grupo-campo">
+              <label for="usuario"> Usuário </label>
 
-                </div>
+              <input
+                required
+                type="text"
+                id="matricula"
+                name="matricula"
+                placeholder="Digite sua matrícula"
+              />
+            </div>
 
+            <!-- Senha -->
 
-                <form>
+            <div class="grupo-campo">
+              <label for="senha"> Senha </label>
 
-                    <!-- Usuário -->
+              <div class="campo-senha">
+                <input
+                  required
+                  type="password"
+                  id="senha"
+                  name="senha"
+                  placeholder="Digite sua senha"
+                />
 
-                    <div class="grupo-campo">
+                <button
+                  class="icone-senha"
+                  type="button"
+                  id="icone-senha"
+                  aria-label="Mostrar senha"
+                  aria-pressed="false"
+                >
+                  <img src="assets/icons/olhofechado.svg" alt="" />
+                </button>
+              </div>
+            </div>
 
-                        <label for="usuario">
-                            Usuário
-                        </label>
+            <!-- Recuperação -->
 
-                        <input required
-                            type="text"
-                            id="matricula"
-                            name="matricula"
-                            placeholder="Digite sua matrícula"
-                        >
+            <div class="recuperacao">
+              <a href="#" id="recuperacao-link"> Esqueci minha senha </a>
+            </div>
 
-                    </div>
+            <!-- Botões -->
 
+            <div class="botoes">
+              <button type="button" class="btn-criar" id="criarConta">
+                Criar Conta
+              </button>
 
-                    <!-- Senha -->
-
-                    <div class="grupo-campo">
-
-                        <label for="senha">
-                            Senha
-                        </label>
-
-                        <div class="campo-senha">
-
-                            <input required
-                                type="password"
-                                id="senha"
-                                name="senha"
-                                placeholder="Digite sua senha"
-                            >
-
-                            <span class="icone-senha">
-                                ⌧
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- Recuperação -->
-
-                    <div class="recuperacao">
-
-                        <a href="#" id="recuperacao-link">
-                            Esqueci minha senha
-                        </a>
-
-                    </div>
-
-
-                    <!-- Botões -->
-
-                    <div class="botoes">
-
-                        <button
-                            type="button"
-                            class="btn-criar"
-                            id="criarConta"
-                        >
-                            Criar Conta
-                        </button>
-
-                        <button
-                            type="submit"
-                            class="btn-entrar"
-                            id="enviar"
-                        >
-                            Entrar
-                        </button>
-
-                    </div>
-
-                </form>
-
-            </section>
-
-        </main>
-
+              <button type="submit" class="btn-entrar" id="enviar">
+                Entrar
+              </button>
+            </div>
+          </form>
+        </section>
+      </main>
     </div>
-
 
     <!-- =========================
          FOOTER
     ========================== -->
 
     <footer class="footer">
+      <div class="footer-conteudo">
+        <!-- INSTITUCIONAL -->
 
-        <div class="footer-conteudo">
+        <div class="footer-secao footer-institucional">
+          <div class="footer-logo">
+            <img src="assets/logo.png" alt="Instituto Federal" />
+          </div>
 
-            <!-- INSTITUCIONAL -->
+          <div>
+            <h3>Instituto Federal do Ceará</h3>
 
-            <div class="footer-secao footer-institucional">
-
-                <div class="footer-logo">
-
-                    <img
-                        src="assets/logo.png"
-                        alt="Instituto Federal"
-                    >
-
-                </div>
-
-                <div>
-
-                    <h3>
-                        Instituto Federal do Ceará
-                    </h3>
-
-                    <p>
-                        Campus Cedro
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- DIVISOR -->
-
-            <div class="footer-divisor"></div>
-
-
-            <!-- NAVEGAÇÃO -->
-
-            <div class="footer-secao footer-navegacao">
-
-                <h3>
-                    Navegação
-                </h3>
-
-                <nav>
-
-                    <a href="#">
-                        Início
-                    </a>
-
-                    <a href="#">
-                        Sobre
-                    </a>
-
-                    <a href="#">
-                        Contato
-                    </a>
-
-                    <a href="#">
-                        Suporte
-                    </a>
-
-                </nav>
-
-            </div>
-
-
-            <!-- DIVISOR -->
-
-            <div class="footer-divisor"></div>
-
-
-            <!-- ATENDIMENTO -->
-
-            <div class="footer-secao footer-contato">
-
-                <h3>
-                    Atendimento
-                </h3>
-
-                <p>
-                    Campus Cedro
-                </p>
-
-                <p>
-                    Ceará - Brasil
-                </p>
-
-            </div>
-
+            <p>Campus Cedro</p>
+          </div>
         </div>
 
+        <!-- DIVISOR -->
 
-        <!-- =========================
+        <div class="footer-divisor"></div>
+
+        <!-- NAVEGAÇÃO -->
+
+        <div class="footer-secao footer-navegacao">
+          <h3>Navegação</h3>
+
+          <nav>
+            <a href="#"> Início </a>
+
+            <a href="#"> Sobre </a>
+
+            <a href="#"> Contato </a>
+
+            <a href="#"> Suporte </a>
+          </nav>
+        </div>
+
+        <!-- DIVISOR -->
+
+        <div class="footer-divisor"></div>
+
+        <!-- ATENDIMENTO -->
+
+        <div class="footer-secao footer-contato">
+          <h3>Atendimento</h3>
+
+          <p>Campus Cedro</p>
+
+          <p>Ceará - Brasil</p>
+        </div>
+      </div>
+
+      <!-- =========================
              PARTE INFERIOR
         ========================== -->
 
-        <div class="footer-bottom">
+      <div class="footer-bottom">
+        <p>© 2026 Instituto Federal do Ceará - Campus Cedro</p>
 
-            <p>
-                © 2026 Instituto Federal do Ceará -
-                Campus Cedro
-            </p>
-
-            <p>
-                Todos os direitos reservados.
-            </p>
-
-        </div>
-
+        <p>Todos os direitos reservados.</p>
+      </div>
     </footer>
-
-</body>
-<script src="/js/scriptLogin.js"></script>
+  </body>
+  <script src="js/login.js"></script>
 </html>

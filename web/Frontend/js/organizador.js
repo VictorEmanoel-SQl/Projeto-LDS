@@ -1,6 +1,95 @@
+// ============================================================
+// organizador.js — tela do ORGANIZADOR (organizador.html)
+// ============================================================
+
+// Busca os eventos no backend (GET /eventos) e renderiza os cards na tela
+async function carregarEventos() {
+    const lista = document.getElementById('lista-eventos');
+    const estadoVazio = document.querySelector('.estado-vazio');
+    if (!lista) return;
+
+    try {
+        const resposta = await fetch('/eventos');
+        const resultado = await resposta.json();
+
+        if (!resposta.ok || !resultado.success) {
+            throw new Error(resultado.message || 'Falha ao buscar eventos.');
+        }
+
+        const eventos = resultado.eventos || [];
+        lista.innerHTML = '';
+
+        if (eventos.length === 0) {
+            if (estadoVazio) estadoVazio.style.display = 'block';
+            return;
+        }
+
+        if (estadoVazio) estadoVazio.style.display = 'none';
+
+        eventos.forEach((ev) => {
+            const card = document.createElement('article');
+            card.className = 'evento-card';
+
+            const img = document.createElement('img');
+            img.src = ev.imagem_evento;
+            img.alt = ev.titulo || 'Imagem do evento';
+            card.appendChild(img);
+
+            const info = document.createElement('div');
+            info.className = 'evento-info';
+
+            const titulo = document.createElement('h2');
+            titulo.textContent = ev.titulo;
+            info.appendChild(titulo);
+
+            const dataFormatada = ev.data_evento
+                ? new Date(ev.data_evento).toLocaleDateString('pt-BR', { timeZone: 'UTC' })
+                : '';
+
+            const campos = [
+                ['Categoria', ev.categoria],
+                ['Organizador', ev.organizador],
+                ['Data', `${dataFormatada} — ${ev.hora_inicio} às ${ev.hora_fim}`],
+                ['Local', ev.local_eventos],
+                ['Vagas', ev.numero_vagas],
+                ['Descrição', ev.descricao]
+            ];
+
+            campos.forEach(([rotulo, valor]) => {
+                const p = document.createElement('p');
+                const strong = document.createElement('strong');
+                strong.textContent = `${rotulo}: `;
+                p.appendChild(strong);
+                p.appendChild(document.createTextNode(valor ?? ''));
+                info.appendChild(p);
+            });
+
+            card.appendChild(info);
+            lista.appendChild(card);
+        });
+    } catch (erro) {
+        console.error('Erro ao carregar eventos:', erro);
+        if (estadoVazio) {
+            estadoVazio.style.display = 'block';
+            const p = estadoVazio.querySelector('p');
+            if (p) p.textContent = 'ERRO AO CARREGAR OS EVENTOS';
+        }
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // 1. Sistema de Pesquisa
+
+    carregarEventos(); // carrega os eventos assim que a página abre
+
+    // Botão "Criar evento" — só existe nesta tela (organizador)
+    const criarevento = document.getElementById('criareventos');
+    if (criarevento) {
+        criarevento.addEventListener('click', () => {
+            window.location.href = 'criareventos.html';
+        });
+    }
+
+    // 2. Sistema de Pesquisa
     const inputPesquisa = document.querySelector('.pesquisa input');
     const btnPesquisa = document.querySelector('.pesquisa button');
 
@@ -20,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. Navegação do Menu Lateral (SPA / Troca dinâmica de conteúdo na mesma página)
+    // 3. Navegação do Menu Lateral (SPA / Troca dinâmica de conteúdo na mesma página)
     const menuLinks = document.querySelectorAll('.menu nav a');
     const tituloPagina = document.querySelector('.conteudo h1');
     const textoEstadoVazio = document.querySelector('.estado-vazio p');
@@ -33,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         "Meus eventos": {
             titulo: "Meus eventos criados",
-            vazio: "VOCÊ AINDA NÃO CRIOU NENHUM EVENTO"
+            vazio: "VOCÊ AINDA NÃO CRIOU NENHUM EVENTO",
         },
         "Minhas inscrições": {
             titulo: "Minhas inscrições",
@@ -66,10 +155,32 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (tituloPagina) tituloPagina.textContent = conteudosAbas[chaveAba].titulo;
                 if (textoEstadoVazio) textoEstadoVazio.textContent = conteudosAbas[chaveAba].vazio;
             }
+
+            const btnCriarEvento = document.getElementById('criareventos');
+            if (btnCriarEvento) {
+             
+                if (chaveAba === "Meus eventos") {
+                    btnCriarEvento.style.display = 'block'; // Mostra o botão
+                } else {
+                    btnCriarEvento.style.display = 'none';  // Oculta nas outras abas
+                }
+            }
+            // ========================================================
+
+            // Aba "Eventos" recarrega todos os eventos;
+            // as outras abas limpam a lista e mostram a mensagem de estado vazio
+            const lista = document.getElementById('lista-eventos');
+            const estadoVazio = document.querySelector('.estado-vazio');
+            if (chaveAba === "Eventos") {
+                carregarEventos();
+            } else if (lista) {
+                lista.innerHTML = '';
+                if (estadoVazio) estadoVazio.style.display = 'block';
+            }
         });
     });
 
-    // 3. Comportamento dinâmico do Botão "Voltar ao Topo"
+    // 4. Comportamento dinâmico do Botão "Voltar ao Topo"
     const btnVoltarTopo = document.querySelector('.voltar-topo');
 
     if (btnVoltarTopo) {
@@ -89,7 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-// 4. CÓDIGO DO MODAL EXATO QUE VOCÊ ENVIOU
+// 5. MODAL DO PERFIL
 function abrirPerfil() {
     const modal = document.getElementById("modalPerfil");
     modal.style.display = "flex";
@@ -106,7 +217,7 @@ function fecharPerfilFora(event) {
     }
 }
 
-document.addEventListener("keydown", function(event) {    
+document.addEventListener("keydown", function(event) {
     if (event.key === "Escape") {
         fecharPerfil();
     }
